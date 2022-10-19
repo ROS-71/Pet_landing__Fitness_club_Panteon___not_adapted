@@ -1,0 +1,1007 @@
+@import "nullstyle.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+%fontsettings {
+	font-family: "Montserrat";
+	color: #ffffff;
+}
+
+%ButtonForm {
+	position: absolute;
+	width: 280px;
+	height: 60px;
+	transform: skew(-25deg);
+	border: 1px solid #ffffff;
+	background-color: transparent;
+	z-index: 200;
+
+	a {
+		@extend %fontsettings;
+		display: flex;
+		transform: skew(25deg);
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 20px;
+		padding: 0 0 0 30px;
+	}
+}
+%Block_Item {
+	width: 308px;
+	height: 372px;
+	box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.08);
+	margin: 0 15px;
+}
+
+// Плавный скроллинг
+html {
+	scroll-behavior: smooth;
+}
+body {
+	position: relative;
+	width: 1440px;
+	height: 6761px;
+	background-color: #ffffff;
+	margin: 0 auto;
+
+	// Описание Первого экрана - MainScreen
+	/*#region*/
+	.MainScreen {
+		width: 1440px;
+		height: 950px;
+
+		// Наложение градиента на backgroung
+		// ОБЯЗАТЕЛЬНОЕ ЗАКЛЮЧЕНИЕ ИЗОБРАЖЕНИЕ В ТЕГ DIV
+		.MS_background {
+			position: relative;
+			display: inline-block;
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 100%, rgba(0, 0, 0, 0.4) 100%);
+			}
+		}
+
+		.MS_header {
+			width: 1336px;
+			height: 106px;
+			margin: 1px 0 0 43px;
+			display: flex;
+			.MS_logo {
+				position: absolute;
+				top: 1px;
+				left: 42px;
+			}
+			.MS_menu {
+				position: absolute;
+				width: 581px;
+				height: 20px;
+				left: 420px;
+				top: 65px;
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 20px;
+				// Задаём между ссылками одинаковое расстояние
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				flex-wrap: wrap;
+				a {
+					@extend %fontsettings;
+					// Анимация при наведении
+					&:hover {
+						color: #f7931e;
+					}
+				}
+			}
+			.MS_phone {
+				@extend %fontsettings;
+				position: absolute;
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 20px;
+				left: 1233px;
+				top: 65px;
+			}
+		}
+		.MS_name {
+			@extend %fontsettings;
+			display: flex;
+			position: absolute;
+			width: 762px;
+			height: 68px;
+			left: 339px;
+			top: 340px;
+			font-weight: 700;
+			font-size: 64px;
+			line-height: 68px;
+		}
+		.MS_clubTitle {
+			@extend %fontsettings;
+			position: absolute;
+			width: 343px;
+			height: 34px;
+			left: 549px;
+			top: 443px;
+			font-weight: 500;
+			font-size: 28px;
+			line-height: 34px;
+		}
+
+		.MS_btn_border {
+			position: absolute;
+			width: 280px;
+			height: 60px;
+			top: -6px;
+			left: 4px;
+			border: 1px solid #ffffff;
+			background-color: transparent;
+			a {
+				padding: 17px 0 0 30px;
+			}
+		}
+
+		.MS_btn_out {
+			position: absolute;
+			top: 5px;
+			left: -5px;
+			width: 290px;
+			height: 60px;
+			border: none;
+			overflow: hidden;
+			// Анимация кнопки
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: #f7931e;
+				top: 4px;
+				left: -100%;
+				opacity: 0.5;
+				transition: 0.3s;
+				z-index: -1;
+			}
+			&::after {
+				opacity: 1;
+				transition-delay: 0.15s;
+			}
+			&:hover::before,
+			&:hover::after {
+				left: -6%;
+				z-index: -1;
+			}
+		}
+		.MS_btn {
+			@extend %ButtonForm;
+			left: 584px;
+			top: 512px;
+
+			&:active {
+				top: 514px;
+			}
+		}
+
+		// Иконки Инстграмм и ВК
+		.MS_iconInsta {
+			position: absolute;
+			top: 867px;
+			left: 1310px;
+		}
+		.MS_iconVK {
+			position: absolute;
+			top: 869px;
+			left: 1347px;
+		}
+		// ----------------------
+
+		// Декоротивные полосы сверху и снизу
+		.MS_Rectangle_transparent_top {
+			position: absolute;
+			top: -98px;
+			left: 1040px;
+		}
+		.MS_Rectangle_orange_top {
+			position: absolute;
+			top: -80px;
+			left: 1058px;
+		}
+		.MS_Rectangle_orange_left {
+			position: absolute;
+			top: 492px;
+		}
+		.MS_Rectangle_transparent_left {
+			position: absolute;
+			top: 655px;
+		}
+		.MS_Rectangle_dark_left {
+			position: absolute;
+			top: 544px;
+		}
+		// ----------------------------------
+	}
+	/*#endregion*/
+
+	// Описание экрана О нас - AboutUs
+	/*#region*/
+
+	.AboutUs {
+		position: absolute;
+		width: 1440px;
+		height: 795px;
+		top: 950px;
+		background-color: #0c1417;
+		.AU_content {
+			width: 1172px;
+			height: 472px;
+			margin: 100px 0 0 130px;
+			.AU_imgLeft {
+				position: absolute;
+				width: 390px;
+				top: 58px;
+				left: 85px;
+				filter: drop-shadow(0px 4px 50px rgba(0, 0, 0, 0.5));
+			}
+			.AU_imgRight {
+				position: absolute;
+				width: 392px;
+				top: 109px;
+				left: 430px;
+				filter: drop-shadow(0px 4px 50px rgba(0, 0, 0, 0.5));
+			}
+		}
+
+		.AU_info {
+			@extend %fontsettings;
+			position: absolute;
+			width: 451px;
+			height: 288px;
+			left: 851px;
+			top: 185px;
+
+			h2 {
+				font-weight: 700;
+				font-size: 30px;
+				line-height: 34px;
+			}
+			p {
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 26px;
+				padding: 50px 0 0 0;
+			}
+			.AU_btn {
+				@extend %ButtonForm;
+				margin: 40px 0 0 15px;
+				overflow: hidden;
+
+				// Анимация кнопки
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					background-color: #f7931e;
+					top: 0;
+					left: -100%;
+					opacity: 0.5;
+					transition: 0.3s;
+					z-index: -1;
+				}
+				&::after {
+					opacity: 1;
+					transition-delay: 0.1s;
+				}
+				&:hover::before,
+				&:hover::after {
+					left: 0px;
+				}
+				&:hover {
+					color: #ffffff;
+				}
+				&:active {
+					top: 190px;
+				}
+			}
+		}
+		.AU_benefis {
+			@extend %fontsettings;
+			position: absolute;
+			width: 1440px;
+			height: 85px;
+			margin: 100px 0 0 30px;
+
+			li {
+				img {
+					max-width: 56px;
+				}
+				height: 85px;
+				display: inline-flex;
+				font-weight: 500;
+				font-size: 18px;
+				line-height: 28px;
+				span {
+					display: flex;
+					margin: 15px 0 0 19px;
+					width: 250px;
+				}
+				&::after {
+					content: "";
+					position: absolute;
+					height: 2px;
+					background-color: #f7931e;
+					width: 0;
+					bottom: 0;
+					transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+				}
+				&:hover {
+					color: #ffffff;
+				}
+				&:hover::after {
+					width: 20%;
+				}
+			}
+		}
+	}
+	/*#endregion*/
+
+	// Описание экрана Галерея - Gallery
+	/*#region*/
+
+	.Gallery {
+		position: absolute;
+		width: 1440px;
+		height: 1091px;
+		top: 950px+795px;
+		@extend %fontsettings;
+		background-color: #0c1417;
+
+		.Gl_title {
+			width: 596px;
+			height: 34px;
+			font-weight: 700;
+			font-size: 30px;
+			line-height: 34px;
+			text-align: center;
+			margin: 0 0 0 424px;
+		}
+		.Gl_content {
+			width: 1325px;
+			height: 815px;
+			margin: 80px 0 0 60px;
+		}
+		.Gl_itemblok1 {
+			display: flex;
+			width: 1162px;
+			height: 375px;
+			gap: 30px;
+			margin: 0 0 0 70.5px;
+			img {
+				margin: -45px;
+			}
+		}
+		.Gl_iemblock2 {
+			display: flex;
+			width: 1162px;
+			height: 300px;
+			gap: 45px;
+			margin: 100px 0 0 70.5px;
+			img {
+				margin: -45px;
+			}
+		}
+		.Gl_LineOrange {
+			width: 376px;
+			overflow: hidden;
+			margin: -145px 0 -20px 0;
+		}
+		.Gl_LineTransparent {
+			margin: -130px 0 0 -425px;
+		}
+	}
+	/*#endregion*/
+
+	// Описание экрана Абонементы - Subscriptions
+	/*#region*/
+
+	.Subscriptions {
+		position: absolute;
+		width: 1440px;
+		height: 1690px;
+		top: 950px+795px+1091px;
+		background-color: #ffffff;
+		font-family: "Montserrat";
+		color: #0c1417;
+	}
+
+	// Первый блок с таблицей
+	.Subs_title {
+		width: 216px;
+		height: 34px;
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 34px;
+		margin: 100px 0 0 613px;
+	}
+	.Subs_block1 {
+		width: 1096px;
+		height: 370px;
+		margin: 80px 0 0 175px;
+		text-align: center;
+		font-size: 16px;
+		line-height: 24px;
+
+		display: table;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			height: 100%;
+		}
+		.bold {
+			font-weight: 700;
+		}
+		tr td {
+			padding: 20px 0 6px 0;
+			&:first-child {
+				width: 212px;
+				text-align: start;
+			}
+			&:nth-child(3),
+			&:nth-child(4),
+			&:nth-child(5) {
+				width: 192px;
+			}
+		}
+	}
+	td {
+		&:hover {
+			color: #f7931e;
+			font-weight: 700;
+		}
+	}
+	td {
+		&:hover {
+			&:nth-child(2),
+			&:nth-child(3),
+			&:nth-child(4),
+			&:nth-child(5) {
+				color: #0c1417;
+			}
+		}
+	}
+	.block_firstLine td {
+		border-bottom: 1px solid rgba(12, 20, 23, 0.5);
+		height: 54px;
+		vertical-align: bottom;
+		&:hover {
+			color: #f7931e;
+		}
+	}
+	// Второй второй с таблицей
+	.Subs_subtitle1 {
+		width: 315px;
+		height: 30px;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 30px;
+		margin: 100px 0 0 565px;
+	}
+	.Subs_block2 {
+		width: 1096px;
+		height: 234px;
+		margin: 80px 0 0 175px;
+		text-align: center;
+		font-size: 16px;
+		line-height: 24px;
+
+		display: table;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			height: 100%;
+		}
+		.bold {
+			font-weight: 700;
+		}
+		tr td {
+			padding: 20px 0 6px 0;
+			&:first-child {
+				width: 232px;
+				text-align: start;
+			}
+			&:nth-child(3),
+			&:nth-child(4),
+			&:nth-child(5) {
+				width: 192px;
+			}
+
+			.block_firstLine td {
+				border-bottom: 1px solid rgba(12, 20, 23, 0.5);
+				height: 54px;
+				vertical-align: bottom;
+				&:hover {
+					color: #f7931e;
+				}
+			}
+			span {
+				font-weight: 400;
+			}
+		}
+	}
+
+	// Третий блок с карточками
+	.Subs_subtitle2 {
+		width: 281px;
+		height: 30px;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 30px;
+		margin: 102px 0 80px 580px;
+	}
+	.Subs_block3 {
+		width: 984px;
+		height: 372px;
+		margin: 0 0 0 231px;
+		display: flex;
+		.block3_item {
+			@extend %Block_Item;
+		}
+		.item_text {
+			width: 267px;
+			height: 48px;
+			color: #0c1417;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 24px;
+			text-align: center;
+			margin: 32px 0 0 10px;
+		}
+		.item_time_workout {
+			font-family: "Montserrat";
+			color: rgba(12, 20, 23, 0.5);
+			font-weight: 400;
+			font-size: 15px;
+			line-height: 20px;
+			text-align: center;
+			margin: 20px 0 30px 0;
+		}
+		.Subs_icon {
+			margin: 0 0 15px 137px;
+		}
+
+		.item_price {
+			font-family: "Montserrat";
+			color: #0c1417;
+			font-weight: 700;
+			font-size: 24px;
+			line-height: 30px;
+			margin: 0 0 0 118px;
+		}
+
+		// Третья карточка
+		.item_text3 {
+			width: 213px;
+			height: 40px;
+			color: #0c1417;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 24px;
+			text-align: center;
+			margin: 32px 0 0 43px;
+		}
+
+		.item_time_workout3 {
+			font-family: "Montserrat";
+			color: rgba(12, 20, 23, 0.5);
+			font-weight: 400;
+			font-size: 15px;
+			line-height: 20px;
+			text-align: center;
+			margin: 20px 0 17px 0;
+		}
+
+		.Subs_icon3 {
+			margin: 10px 0 15px 127px;
+		}
+		// ------------------
+
+		.Subs_button {
+			width: 220px;
+			height: 50px;
+			border: 1px solid #f7931e;
+			background-color: #ffffff;
+			box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.08);
+			margin: 0 0 0 44px;
+			transform: skewX(-25deg);
+			overflow: hidden;
+
+			// Анимация кнопок
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: #f7931e;
+				top: 0;
+				left: -100%;
+				opacity: 0.5;
+				transition: 0.3s;
+				z-index: -1;
+			}
+			&::after {
+				opacity: 1;
+				transition-delay: 0.15s;
+			}
+			&:hover::before,
+			&:hover::after {
+				left: 0%;
+			}
+			&:hover {
+				color: #ffffff;
+				a {
+					color: #ffffff;
+				}
+			}
+			&:active {
+				margin: 2px 0 0 44px;
+			}
+			.button_link {
+				display: flex;
+				transform: skewX(25deg);
+				font-family: "Montserrat";
+				font-weight: 700;
+				font-size: 16px;
+				line-height: 20px;
+				padding: 0 0 0 80px;
+				color: #f7931e;
+			}
+		}
+	}
+
+	.Subs_LineLeft {
+		.Subs_LineDark {
+			position: absolute;
+			top: 880px;
+		}
+		.Subs_LineOrangeTrans {
+			position: absolute;
+			top: 840px;
+		}
+	}
+	.Subs_LineRight {
+		.Subs_LineDark2 {
+			position: absolute;
+			top: 400px;
+			left: 1300px;
+		}
+		.Subs_LineLineOrangeTrans2 {
+			position: absolute;
+			top: 320px;
+			left: 1300px;
+		}
+		.Subs_LineOrange2 {
+			position: absolute;
+			top: 530px;
+			left: 1385px;
+		}
+	}
+	/*#endregion*/
+
+	// Описание экрана Тренеры - Trainers
+	/*#region*/
+
+	.Trainers {
+		position: absolute;
+		width: 1440px;
+		height: 827px;
+		top: 950px+795px+1091px+1690px;
+		background-color: #0c1417;
+
+		.Trainers_title {
+			@extend %fontsettings;
+			font-weight: 700;
+			font-size: 30px;
+			line-height: 34px;
+			position: absolute;
+			margin: 307px 0 0 82px;
+		}
+		.Trainers_content {
+			display: flex;
+			width: 981px;
+			height: 119px+20px+430px;
+			margin: 100px 0 0 285px;
+		}
+		.Trainers_item {
+			margin: 0 15px 0 5px;
+		}
+		.Trainers_name {
+			@extend %fontsettings;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 24px;
+			padding: 20px 0 0 0;
+		}
+		.Trainers_skill {
+			font-family: "Montserrat";
+			color: rgba(255, 255, 255, 0.5);
+			font-weight: 400;
+			font-size: 15px;
+			line-height: 20px;
+		}
+		.Trainers_LineOrange {
+			position: absolute;
+			width: 170px;
+			height: 270px;
+			left: 0;
+			top: 10px;
+		}
+		.Trainers_LineTranparent {
+			position: absolute;
+			width: 170px;
+			height: 250px;
+			left: -55px;
+			top: -40px;
+			overflow: hidden;
+		}
+	}
+	/*#endregion*/
+
+	// Описание экрана Форма ввода - InputForm
+	/*#region*/
+
+	.InputForm {
+		position: absolute;
+		display: block;
+		width: 1440px;
+		height: 600px;
+		top: 950px+795px+1091px+1690px+827px;
+		img {
+			position: absolute;
+			display: flex;
+			width: 100%;
+			height: 100%;
+			filter: brightness(80%);
+			z-index: -1;
+		}
+
+		.IF_Form {
+			position: absolute;
+			width: 351px;
+			height: 378px;
+			left: 916px;
+			top: 111px;
+		}
+		.IF_title {
+			@extend %fontsettings;
+			width: 275px;
+			height: 30px;
+			margin: 0 0 25px 38px;
+			font-weight: 700;
+			font-size: 24px;
+			line-height: 30px;
+		}
+		.IF_Text {
+			@extend %fontsettings;
+			width: 351px;
+			height: 48px;
+			margin: 0 0 20px 0;
+			text-align: center;
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 24px;
+			span {
+				color: #f7931e;
+			}
+		}
+		.IF_UserName {
+			width: 351px;
+			height: 50px;
+			font-family: "Montserrat";
+			color: rgba(255, 255, 255, 0.5);
+			background-color: transparent;
+			border-bottom: 1px solid #ffffff;
+			&:focus {
+				color: #ffffff;
+			}
+		}
+		.PhoneNumber {
+			width: 351px;
+			height: 50px;
+			margin: 10px 0 20px 0;
+			font-family: "Montserrat";
+			color: rgba(255, 255, 255, 0.5);
+			background-color: transparent;
+			border-bottom: 1px solid #ffffff;
+			&:focus {
+				color: #ffffff;
+			}
+		}
+		.IF_btn {
+			@extend %ButtonForm;
+			margin: 0 0 0 35px;
+			overflow: hidden;
+
+			// Анимация кнопок
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: #f7931e;
+				top: 0;
+				left: -100%;
+				opacity: 0.5;
+				transition: 0.3s;
+				z-index: -1;
+			}
+			&::after {
+				opacity: 1;
+				transition-delay: 0.15s;
+			}
+			&:hover::before,
+			&:hover::after {
+				left: 0;
+			}
+			&:hover {
+				color: #ffffff;
+			}
+			&:active {
+				top: 256px;
+			}
+		}
+		.IF_Info {
+			@extend %fontsettings;
+			width: 280px;
+			height: 40px;
+			margin: 75px 0 0 35.5px;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 20px;
+			text-align: center;
+			color: rgba(255, 255, 255, 0.5);
+		}
+	}
+	/*#endregion*/
+
+	// Описание экрана Контакты - Contacts
+	/*#region*/
+
+	.Contacts {
+		position: absolute;
+		display: block;
+		width: 1440px;
+		height: 567px;
+		top: 950px+795px+1091px+1690px+827px+600px;
+		.Contacts_Map {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.Contacts_block {
+		position: absolute;
+		display: flex;
+		width: 396px;
+		height: 449px;
+		top: 70px;
+		left: 176px;
+		background-color: #0c1417;
+
+		.Contacts_title {
+			@extend %fontsettings;
+			font-weight: 700;
+			font-size: 30px;
+			line-height: 34px;
+			margin: 50px 0 0 38px;
+		}
+		.Contacts_info {
+			@extend %fontsettings;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 24px;
+			position: absolute;
+			width: 323px;
+			height: 261px;
+			margin: 134px 0 0 39px;
+		}
+		.Contacts_adress {
+			img {
+				padding: 0 22px 26px 0;
+			}
+		}
+		.Contacts_WorkOut {
+			img {
+				padding: 0 17px 26px 0;
+			}
+		}
+		.Contacts_PhoneNumber {
+			img {
+				padding: 0 17px 0 0;
+			}
+			display: flex;
+			padding: 0 0 40px 0;
+		}
+		.Contacts_Social {
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 24px;
+			img {
+				padding: 30px 17px 0 0;
+			}
+		}
+	}
+	/*#endregion*/
+
+	// Описание экрана Футера - Footer
+	/*#region*/
+
+	.footer {
+		position: absolute;
+		width: 1440px;
+		height: 241px;
+		top: 950px+795px+1091px+1690px+827px+600px+567px;
+		font-family: "Montserrat";
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 24px;
+		color: rgba(255, 255, 255, 0.7);
+		background-color: #000000;
+		text-align: left;
+		a {
+			text-decoration: none;
+			color: rgba(255, 255, 255, 0.7);
+		}
+		display: flex;
+		border: 1px solid red;
+
+		.block1 {
+			text-align: center;
+			margin: 15px 0 0 43px;
+		}
+		.block2 {
+			width: 94px;
+			height: 72px;
+			margin: 50px 0 0 92px;
+		}
+		.block3 {
+			width: 69px;
+			height: 48px;
+			margin: 50px 0 0 50px;
+		}
+		.block4 {
+			width: 186px;
+			height: 72px;
+			margin: 50px 0 0 77px;
+		}
+		.block5 {
+			width: 108px;
+			height: 75px;
+			margin: 50px 0 0 80px;
+			img {
+				margin: 21px 15px 0 0;
+			}
+		}
+		.block6 {
+			width: 253px;
+			height: 141px;
+			margin: 50px 0 0 110px;
+			line-height: 35px;
+		}
+	}
+	/*#endregion*/
+
+	/* body  */
+}
