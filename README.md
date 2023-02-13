@@ -1,4 +1,4 @@
-# WEB_Landing_Fitness_club_Panteon
+# Landing_Fitness_club_Panteon
 19.10.2022г.
 НОВЫЙ ПРОЕКТ - Фитнесс клуб "Пантеон"
 Внедрил много нового, что изучил:
