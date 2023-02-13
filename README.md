@@ -9,3 +9,7 @@
   5. Реализация градиента на background первого экрана
   6. Иконки ссылками на соцсети
   7. Проверенно на браузерах: Chrome, Opera, Mozilla FireFox и Edge
+
+
+![Иллюстрация к проекту](https://img.hhcdn.ru/photo/715299245.jpeg?t=1676414913&h=Ceo6Lubip6bKNX854GzTEg)
+
